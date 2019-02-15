@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Take a picture</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  $("#capture_button").click(function(){
+		//alert('{"username" : "'+$('#username').val()+'"}')
+		$.ajax({
+			url: "/login",
+			type: "POST",
+			contentType: "application/json",
+			success: function(result){
+				$("#div1").html("<h1>Welcome "+result+"</h1>");
+				$("#camera_div").hide()
+			}
+		});
+	  });
+	});
+	</script>
+  </head>
+  <body>
+	<div id = "camera_div">
+		<img id="bg1" src="{{ url_for('video_feed') }}">
+		<input type="button" id="capture_button" value="Login" />
+	</div>
+	<div id="div1"></div>
+  </body>
+</html>

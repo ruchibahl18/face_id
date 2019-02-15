@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Take a picture</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  $("#capture_button").click(function(){
+		//alert('{"username" : "'+$('#username').val()+'"}')
+		$.ajax({
+			url: "/capture",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify($('#username').val()),
+			success: function(result){
+				$("#div1").html("You have been registered");
+			}
+		});
+	  });
+	});
+	</script>
+  </head>
+  <body>
+	Username :- <input type="text" id="username" />
+    <img id="bg" src="{{ url_for('video_feed') }}">
+	<input type="button" id="capture_button" value="Capture" />
+	<div id="div1"></div>
+  </body>
+</html>
