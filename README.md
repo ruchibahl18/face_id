@@ -9,6 +9,7 @@ This is a flask project to register users with their face as an identifier and t
 - opencv-python
 - opencv-contrib-python 
 - flask
+ 
  For installation you can use pip installer For ex
  > pip install flask
 
